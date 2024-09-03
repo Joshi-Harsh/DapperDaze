@@ -58,15 +58,14 @@ async function addCartItem(userId, req) {
       size: req.size,
       discountedPrice:product.discountedPrice
     });
-
-   
-
+  
     const createdCartItem = await cartItem.save();
     cart.cartItems.push(createdCartItem);
     await cart.save();
+    return createdCartItem;
   }
 
-  return 'Item added to cart';
+  return isPresent;
 }
 
 module.exports = { createCart, findUserCart, addCartItem };

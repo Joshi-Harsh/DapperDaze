@@ -84,7 +84,7 @@ export default function Product() {
       maxPrice: maxPrice || 10000,
       minDiscount: disccount || 0,
       sort: sortValue || "price_low",
-      pageNumber: pageNumber ,
+      pageNumber: pageNumber,
       pageSize: 10,
       stock: stock,
     };
@@ -483,7 +483,7 @@ export default function Product() {
 
         {/* {backdrop} */}
         <section>
-         <BackdropComponent open={isLoaderOpen}/>
+          <BackdropComponent open={isLoaderOpen} />
         </section>
       </div>
     </div>

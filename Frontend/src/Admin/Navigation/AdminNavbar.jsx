@@ -19,7 +19,7 @@ import Avatar from '@mui/material/Avatar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../Redux/Auth/Action';
 
 const Search = styled('div')(({ theme }) => ({
@@ -171,31 +171,59 @@ export default function AdminNavbar({handleSideBarViewInMobile}) {
 // https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + isLargeScreen, backgroundColor: 'rgb(0, 0, 22)' }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + isLargeScreen,
+          backgroundColor: "rgb(0, 0, 22)",
+        }}
+      >
         <Toolbar>
-          {!isLargeScreen && <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-            onClick={handleSideBarViewInMobile}
-          >
-            <MenuIcon />
-          </IconButton>}
-          <Avatar alt="Zosh" src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png" />
+          {!isLargeScreen && (
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+              onClick={handleSideBarViewInMobile}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+
+          <div className="ml-4 flex lg:ml-0">
+            <Link to="/admin">
+              <span className="sr-only">DapperDaze</span>
+              <img
+                src="https://res.cloudinary.com/dnyqcj7ho/image/upload/v1725058808/DapperDaze_vx5kxu.png"
+                alt="DapperDaze"
+                className="h-10 w-21 mr-2"
+              />
+            </Link>
+          </div>
+
+          {/*<Avatar
+            alt="DapperDaze"
+            src="https://res.cloudinary.com/dnyqcj7ho/image/upload/v1725058808/DapperDaze_vx5kxu.png"
+            
+          /> */}
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -221,7 +249,7 @@ export default function AdminNavbar({handleSideBarViewInMobile}) {
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -235,7 +263,6 @@ export default function AdminNavbar({handleSideBarViewInMobile}) {
           </Box>
         </Toolbar>
       </AppBar>
-      
     </Box>
   );
 }

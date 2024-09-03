@@ -128,7 +128,7 @@ const jwt=localStorage.getItem("jwt")
               onChange={handleChange}
             />
           </Grid>
-        
+
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
@@ -177,7 +177,7 @@ const jwt=localStorage.getItem("jwt")
               type="number"
             />
           </Grid>
-          
+
           <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
@@ -227,10 +227,18 @@ const jwt=localStorage.getItem("jwt")
                 onChange={handleChange}
                 label="Third Level Category"
               >
-                <MenuItem value="top">Tops</MenuItem>
-                <MenuItem value="women_dress">Dresses</MenuItem>
-                <MenuItem value="t-shirts">T-Shirts</MenuItem>
+                <MenuItem value="mens_kurta">Men's Kurta</MenuItem>
+                <MenuItem value="mens_shirt">Men's Shirt</MenuItem>
+                <MenuItem value="mens_jeans">Men's Jeans</MenuItem>
+                <MenuItem value="mens_t-shirts">T-Shirts</MenuItem>
+                <MenuItem value="mens_watch">Men's Watch</MenuItem>
+                <MenuItem value="tops">Tops</MenuItem>
+                <MenuItem value="dress">Dress</MenuItem>
+                <MenuItem value="womens_jeans">Women's Jeans</MenuItem>
                 <MenuItem value="saree">Saree</MenuItem>
+                <MenuItem value="lengha_choli">Lengha Choli</MenuItem>
+                <MenuItem value="womens_watch">Women's Watch</MenuItem>
+
                 <MenuItem value="lengha_choli">Lengha Choli</MenuItem>
               </Select>
             </FormControl>
@@ -248,7 +256,7 @@ const jwt=localStorage.getItem("jwt")
             />
           </Grid>
           {productData.size.map((size, index) => (
-            <Grid container item spacing={3} >
+            <Grid container item spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Size Name"
@@ -268,10 +276,10 @@ const jwt=localStorage.getItem("jwt")
                   required
                   fullWidth
                 />
-              </Grid> </Grid>
-            
+              </Grid>{" "}
+            </Grid>
           ))}
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             <Button
               variant="contained"
               sx={{ p: 1.8 }}

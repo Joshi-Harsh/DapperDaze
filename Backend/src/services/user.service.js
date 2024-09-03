@@ -19,7 +19,7 @@ const createUser = async (userData)=>{
     
         const user=await User.create({firstName,lastName,email,password,role})
 
-        console.log("user ",user)
+        console.log("user Created",user)
     
         return user;
         
@@ -65,7 +65,7 @@ const getUserProfileByToken=async(token)=>{
 
         const userId=jwtProvider.getUserIdFromToken(token)
 
-        console.log("userr id ",userId)
+        console.log("user id ",userId)
 
 
         const user= (await findUserById(userId)).populate("addresses");

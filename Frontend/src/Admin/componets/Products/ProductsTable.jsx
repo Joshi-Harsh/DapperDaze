@@ -104,10 +104,18 @@ const ProductsTable = () => {
                 label="Category"
                 onChange={(e) => handleFilterChange(e, "category")}
               >
-                <MenuItem value={"pant"}>Men's Pants</MenuItem>
                 <MenuItem value={"mens_kurta"}>Men's Kurta</MenuItem>
+                <MenuItem value={"mens_shirt"}>Men's Shirt</MenuItem>
+                <MenuItem value={"mens_jeans"}>Men's Jeans</MenuItem>
+                <MenuItem value={"mens_t-shirts"}>Men's T-Shirts</MenuItem>
+                <MenuItem value={"mens_watch"}>Men's Watch</MenuItem>
+
+                <MenuItem value={"tops"}>Tops</MenuItem>
+                <MenuItem value={"dress"}>Dress</MenuItem>
+                <MenuItem value={"womens_jeans"}>Women's Jeans</MenuItem>
                 <MenuItem value={"saree"}>Saree</MenuItem>
                 <MenuItem value={"lengha_choli"}>Lengha Choli</MenuItem>
+                <MenuItem value={"womens_watch"}>Women's Watch</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -175,7 +183,6 @@ const ProductsTable = () => {
                   hover
                   key={item.name}
                   sx={{ "&:last-of-type td, &:last-of-type th": { border: 0 } }}
-                  
                 >
                   <TableCell>
                     {" "}
@@ -197,12 +204,23 @@ const ProductsTable = () => {
                       <Typography variant="caption">{item.brand}</Typography>
                     </Box>
                   </TableCell>
-                  <TableCell sx={{ textAlign: "center" }}>{item.category.name}</TableCell>
-                  <TableCell sx={{ textAlign: "center" }}>{item.discountedPrice}</TableCell>
-                  <TableCell sx={{ textAlign: "center" }}>{item.quantity}</TableCell>
-              
                   <TableCell sx={{ textAlign: "center" }}>
-                    <Button variant="text" onClick={()=>handleDeleteProduct(item._id)}>Delete</Button>
+                    {item.category.name}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {item.discountedPrice}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {item.quantity}
+                  </TableCell>
+
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <Button
+                      variant="text"
+                      onClick={() => handleDeleteProduct(item._id)}
+                    >
+                      Delete
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -74,18 +74,20 @@ const UpdateProductForm = () => {
   };
 
   useEffect(() => {
-    dispatch(findProductById({productId}));
+    dispatch(findProductById({ productId }));
   }, [productId]);
 
-  useEffect(()=>{
-    if(customersProduct.product){
-        for(let key in productData){
-    setProductData((prev)=>({...prev,[key]:customersProduct.product[key]}))
-    console.log(customersProduct.product[key],"--------",key)
-}
+  useEffect(() => {
+    if (customersProduct.product) {
+      for (let key in productData) {
+        setProductData((prev) => ({
+          ...prev,
+          [key]: customersProduct.product[key],
+        }));
+        console.log(customersProduct.product[key], "--------", key);
+      }
     }
-
-  },[customersProduct.product])
+  }, [customersProduct.product]);
 
   return (
     <Fragment className="createProductContainer ">
@@ -209,7 +211,7 @@ const UpdateProductForm = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6} sm={4}>
+          <Grid item xs={7} sm={5}>
             <FormControl fullWidth>
               <InputLabel>Third Level Category</InputLabel>
               <Select
@@ -218,11 +220,13 @@ const UpdateProductForm = () => {
                 onChange={handleChange}
                 label="Third Level Category"
               >
-                <MenuItem value="Tops">Tops</MenuItem>
-                <MenuItem value="Dresses">Dresses</MenuItem>
+                <MenuItem value="tops">Tops</MenuItem>
+                <MenuItem value="dress">Dresses</MenuItem>
                 <MenuItem value="T-Shirts">T-Shirts</MenuItem>
                 <MenuItem value="Saree">Saree</MenuItem>
-                <MenuItem value="Saree">Saree</MenuItem>
+                <MenuItem value="Kurta">Kurta</MenuItem>
+                <MenuItem value="Shirt">Shirt</MenuItem>
+                <MenuItem value="Jeans">Jeans</MenuItem>
                 <MenuItem value="Lengha Choli">Lengha Choli</MenuItem>
               </Select>
             </FormControl>
